@@ -1,0 +1,40 @@
+{
+  "author": "Dumitru Cantea",
+  "name": "ournet.api",
+  "description": "Ournet api",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "actionhero": "15.3.0",
+    "dotenv": "^2.0.0",
+    "fakeredis": "latest",
+    "ioredis": "latest",
+    "ournet.data.news": "^0.3.2",
+    "ws": "latest"
+  },
+  "devDependencies": {
+    "mocha": "latest",
+    "should": "latest"
+  },
+  "scripts": {
+    "start": "actionhero start",
+    "actionhero": "actionhero",
+    "test": "NODE_ENV=test mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ournet/ournet.api.git"
+  },
+  "keywords": [
+    "ournet",
+    "api"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ournet/ournet.api/issues"
+  },
+  "homepage": "https://github.com/Ournet/ournet.api#readme"
+}
