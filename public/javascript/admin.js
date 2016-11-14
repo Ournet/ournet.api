@@ -34,7 +34,16 @@
 	}
 
 	function showMessage(message, type) {
-
+		type = type || 'success';
+		var pm = $('#page-message');
+		pm.find('.message').html(message);
+		pm.removeClass('success');
+		pm.removeClass('error');
+		pm.addClass(type);
+		pm.show();
+		setTimeout(function() {
+			pm.hide();
+		}, 1000 * 5);
 	}
 
 	function formatFeed(item) {
@@ -55,26 +64,26 @@
 		html += '  <input type="text" name="title" class="form-control" placeholder="Title" value="' + item.title.replace(/"/g, '') + '">';
 		html += ' </div>';
 		html += '</div>';
+
 		// culture:
 		html += '<div class="form-group">';
 		html += '<label class="col-sm-2 control-label">Country, lang</label>';
+
 		// country
-		html += ' <div class="col-sm-5">';
+		html += ' <div class="col-sm-3">';
 		html += '  <input type="text" name="country" class="form-control" placeholder="Country" maxlength=2 value="' + item.country + '">';
 		html += ' </div>';
 		// language
-		html += ' <div class="col-sm-5">';
+		html += ' <div class="col-sm-3">';
 		html += '  <input type="text" name="lang" class="form-control" placeholder="Language" maxlength=2 value="' + item.lang + '">';
+		html += ' </div>';
+		// status
+		html += ' <div class="col-sm-4">';
+		html += '  <input type="text" name="status" class="form-control" placeholder="Status" value="' + item.status + '">';
 		html += ' </div>';
 
 		html += '</div>';
-		// status
-		html += '<div class="form-group">';
-		html += '<label class="col-sm-2 control-label">Status</label>';
-		html += ' <div class="col-sm-10">';
-		html += '  <input type="text" name="status" class="form-control" placeholder="Status" value="' + item.status + '">';
-		html += ' </div>';
-		html += '</div>';
+
 		if (item.itemReadedAt) {
 			// itemReadedAt
 			html += '<div class="form-group">';
@@ -113,10 +122,64 @@
 		return html;
 	}
 
+	function formatWebsite(item) {
+		var html = '<form class="form-horizontal" data-action="news.website.update">';
+		// id
+		html += '  <input type="hidden" name="id" value="' + item.id + '">';
+		// url
+		html += '<div class="form-group">';
+		html += '<label class="col-sm-2 control-label">Url</label>';
+		html += ' <div class="col-sm-10">';
+		html += '  <input type="url" readonly=readonly class="form-control" placeholder="Url" value="' + item.url + '">';
+		html += ' </div>';
+		html += '</div>';
+		// title
+		html += '<div class="form-group">';
+		html += '<label class="col-sm-2 control-label">Title</label>';
+		html += ' <div class="col-sm-10">';
+		html += '  <input type="text" name="title" class="form-control" placeholder="Title" value="' + item.title.replace(/"/g, '') + '">';
+		html += ' </div>';
+		html += '</div>';
+
+		// culture:
+		html += '<div class="form-group">';
+		html += '<label class="col-sm-2 control-label">Country, lang</label>';
+		// country
+		html += ' <div class="col-sm-3">';
+		html += '  <input type="text" name="country" class="form-control" placeholder="Country" maxlength=2 value="' + item.country + '">';
+		html += ' </div>';
+		// language
+		html += ' <div class="col-sm-3">';
+		html += '  <input type="text" name="lang" class="form-control" placeholder="Language" maxlength=2 value="' + item.lang + '">';
+		html += ' </div>';
+		// status
+		html += ' <div class="col-sm-4">';
+		html += '  <input type="text" name="status" class="form-control" placeholder="Status" value="' + item.status + '">';
+		html += ' </div>';
+		html += '</div>';
+
+		// buttons
+		html += '<div class="form-group">';
+		html += '  <div class="col-sm-offset-2 col-sm-10">';
+		html += '    <button type="submit" class="btn btn-primary">Save</button>';
+		// if (item.status === 'inactive') {
+		// 	html += '    <button type="button" class="btn btn-danger action-button" data-action="news.feed.delete">Delete</button>';
+		// }
+		html += '  </div>';
+		html += '</div>';
+		html += '</form>';
+		html += '<div id="feeds-' + item.id + '"></div>';
+
+		return html;
+	}
+
 	function formatModel(model, item) {
+		console.log(model, item);
 		switch (model) {
 			case 'feed':
 				return formatFeed(item);
+			case 'website':
+				return formatWebsite(item);
 		}
 	}
 
@@ -180,7 +243,11 @@
 		});
 
 		callAction(action, params, function(result) {
-			console.log('result', result);
+			if (result.error) {
+				showMessage(result.error, 'error');
+			} else {
+				showMessage('Success!');
+			}
 		});
 
 		return false;
@@ -188,9 +255,9 @@
 
 	$(w).ready(function() {
 		// refresh lists
-		$('.query-form').each(function() {
-			executeQueryForm(this);
-		});
+		// $('.query-form').each(function() {
+		// 	executeQueryForm(this);
+		// });
 		// refresh lists on click
 		$('.query-button').click(function() {
 			var form = $(this).closest('.query-form');
