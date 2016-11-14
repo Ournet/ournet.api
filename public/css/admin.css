@@ -19,3 +19,11 @@
 #page-message.error .message {
     background: #ca0000;
 }
+
+.website-feeds {
+    background: #eee;
+}
+
+.website-feeds .list-group-item {
+    background: #eee;
+}

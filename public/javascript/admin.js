@@ -162,13 +162,14 @@
 		html += '<div class="form-group">';
 		html += '  <div class="col-sm-offset-2 col-sm-10">';
 		html += '    <button type="submit" class="btn btn-primary">Save</button>';
+		html += '    <button class="btn btn-link query-action" data-model="feed" data-target="feeds-' + item.id + '" data-action="news.feeds.list" data-params="{&#x22;where&#x22;:{&#x22;websiteId&#x22;:' + item.id + '}}">Feeds</button>';
 		// if (item.status === 'inactive') {
 		// 	html += '    <button type="button" class="btn btn-danger action-button" data-action="news.feed.delete">Delete</button>';
 		// }
 		html += '  </div>';
 		html += '</div>';
 		html += '</form>';
-		html += '<div id="feeds-' + item.id + '"></div>';
+		html += '<ul class="list-group website-feeds" id="feeds-' + item.id + '"></ul>';
 
 		return html;
 	}
@@ -190,6 +191,29 @@
 		var target = $('#' + el.attr('data-target'));
 		var model = el.attr('data-model');
 		var params = JSON.parse(el.find('textarea').val());
+
+		console.log(action, target, model, params);
+
+		callAction(action, params, function(data) {
+			target.html('');
+			for (var i = 0; i < data.length; i++) {
+				var html = '<li class="list-group-item">' + formatModel(model, data[i]) + '</li>';
+				target.append(html);
+			}
+		});
+	}
+
+	function executeQueryAction() {
+		var el = $(this);
+
+		var action = el.attr('data-action');
+		var target = $('#' + el.attr('data-target'));
+		var model = el.attr('data-model');
+		var params = el.attr('data-params');
+		if (!params) {
+			params = el.find('textarea').val();
+		}
+		params = JSON.parse(params);
 
 		console.log(action, target, model, params);
 
@@ -263,6 +287,8 @@
 			var form = $(this).closest('.query-form');
 			executeQueryForm(form);
 		});
+
+		$(d).on('click', '.query-action', executeQueryAction);
 
 		$(d).on('click', '.action-button', actionButtonClicked);
 
