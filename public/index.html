@@ -1,0 +1,91 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="en" />
+  <meta name="description" content="ActionHero.js" />
+  <link rel="stylesheet" href="/public/css/cosmo.css" type="text/css">
+  <link rel="stylesheet" href="/public/css/tt.css" type="text/css">
+  <link rel="icon" href="/public/favicon.ico">
+  <title>ActionHero.js</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="page-header">News feeds:</h1>
+    <div class="row">
+      <div class="col-xs-12 col-sm-7">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">List</h2>
+          </div>
+          <div class="panel-body">
+            <div class="query-form well" data-action="news.feeds.list" data-target="news-feeds-list" data-model="feed">
+              <textarea class="form-control" value="limit=10&order=-readErrorAt&where.country=md">{ "offset":0,"limit":10, "order":"-readErrorAt", "where":{ "country":"md", "status":"active" } }</textarea>
+              <br>
+              <div class="text-right">
+                <button class="btn btn-primary query-button">Query</button>
+              </div>
+            </div>
+          </div>
+          <ul class="list-group" id="news-feeds-list"></ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">New feed</h2>
+          </div>
+          <div class="panel-body">
+            <form class="form-horizontal" id="news-feed-create" data-action="news.feed.create">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Website</label>
+                <div class="col-sm-10">
+                  <input type="text" name="websiteHost" class="form-control" placeholder="Website">
+                  <input type="hidden" name="websiteId" required="required">
+                  <input type="hidden" name="contentType" value="1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Url</label>
+                <div class="col-sm-10">
+                  <input type="url" name="url" class="form-control" placeholder="Url" required="required">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" name="title" class="form-control" placeholder="Title" required="required">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Country, lang</label>
+                <div class="col-sm-5">
+                  <input type="text" name="country" class="form-control" placeholder="Country" maxlength="2" required="required"> </div>
+                <div class="col-sm-5">
+                  <input type="text" name="lang" class="form-control" placeholder="Language" maxlength="2" required="required"> </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Status</label>
+                <div class="col-sm-10">
+                  <input type="text" name="status" class="form-control" placeholder="Status" value="active" required="required"> </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+  </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"></script>
+  <script src="/public/javascript/admin.js"></script>
+</body>
+
+</html>

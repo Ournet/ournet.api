@@ -12,7 +12,6 @@ exports.action = {
 
 	inputs: {
 		id: 1,
-		url: 1,
 		title: 1,
 		lang: 1,
 		country: 1,
@@ -22,7 +21,7 @@ exports.action = {
 	run: function(api, data, next) {
 		api.data.news.control.updateFeed(data.params)
 			.then((result) => {
-				data.response = result;
+				data.response = result || {};
 				next();
 			})
 			.catch(next);
