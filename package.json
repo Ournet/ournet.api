@@ -8,20 +8,18 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "actionhero": "15.3.0",
     "dotenv": "^2.0.0",
-    "fakeredis": "latest",
-    "ioredis": "latest",
-    "ournet.data.news": "^0.3.2",
-    "ws": "latest"
+    "graphql": "^0.8.2",
+    "graphql-type-json": "^0.1.4",
+    "ournet.data.places": "^0.4.1",
+    "ournet.data.weather": "^0.6.21",
+    "ournet.logger": "^0.1.0",
+    "restify": "^4.3.0",
+    "transparentcache": "^1.0.0"
   },
-  "devDependencies": {
-    "mocha": "latest",
-    "should": "latest"
-  },
+  "devDependencies": {},
   "scripts": {
-    "start": "actionhero start",
-    "actionhero": "actionhero",
+    "start": "node ./lib/app.js",
     "test": "NODE_ENV=test mocha"
   },
   "repository": {
