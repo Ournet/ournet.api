@@ -9,12 +9,13 @@
   },
   "dependencies": {
     "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "express-graphql": "^0.6.1",
     "graphql": "^0.8.2",
     "graphql-type-json": "^0.1.4",
     "ournet.data.places": "^0.4.1",
     "ournet.data.weather": "^0.6.21",
     "ournet.logger": "^0.1.0",
-    "restify": "^4.3.0",
     "transparentcache": "^1.0.0"
   },
   "devDependencies": {},
