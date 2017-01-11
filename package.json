@@ -12,9 +12,11 @@
     "express-graphql": "^0.6.1",
     "graphql": "^0.8.2",
     "graphql-type-json": "^0.1.4",
+    "ournet.data.exchange": "^0.4.0",
     "ournet.data.places": "^0.4.1",
     "ournet.data.weather": "^0.6.21",
     "ournet.logger": "^0.1.0",
+    "public-holidays": "0.0.3",
     "transparentcache": "^1.0.0"
   },
   "devDependencies": {},
