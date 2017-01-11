@@ -13,6 +13,7 @@
     "graphql": "^0.8.2",
     "graphql-type-json": "^0.1.4",
     "ournet.data.exchange": "^0.4.0",
+    "ournet.data.news": "^0.3.3",
     "ournet.data.places": "^0.4.1",
     "ournet.data.weather": "^0.6.21",
     "ournet.logger": "^0.1.0",
