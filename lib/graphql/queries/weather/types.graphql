@@ -1,0 +1,47 @@
+
+type WeatherReport {
+  timezone?: String
+  days: [WeatherDayReport]
+}
+
+type WeatherDayReport {
+  times: [WeatherTimeReport]
+  date: String!
+}
+
+type WeatherTimeReport {
+  time: Number!
+  wind: WTRWind
+  t: WTRUnit
+  pressure: WTRUnit
+  humidity: WTRPercent
+  cloudiness: WTRPercent
+  fog: WTRPercent
+}
+
+type WTRPercent {
+  percent: Number
+}
+
+type WTRUnit {
+  unit: String
+  value: Number
+}
+
+type WTRSymbol {
+  number: Number
+}
+
+type WTRWind {
+  dir: WTRWindDir
+  speed: WTRWindSpeed
+}
+
+type WTRWindDir {
+  code: String
+}
+
+type WTRWindSpeed {
+  mps: Number
+  beaufort: Number
+}

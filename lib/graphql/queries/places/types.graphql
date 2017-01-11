@@ -1,0 +1,23 @@
+
+type GeoPlace {
+  id: Int!
+  name: String!
+  asciiname: String!
+  alternatenames: String
+  latitude: Float!
+  longitude: Float!
+  feature_class: String
+  feature_code: String
+  country_code: String
+  admin1_code: String
+  admin2_code: String
+  admin3_code: String
+  population: Int
+  elevation: Int
+  dem: Int
+  timezone: String
+  adm1_key: String
+  type_adm1: String
+  type_city: String
+  region: GeoPlace
+}

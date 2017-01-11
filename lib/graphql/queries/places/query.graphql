@@ -1,0 +1,4 @@
+
+{
+  place(id: String): Place
+}
