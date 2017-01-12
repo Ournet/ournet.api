@@ -12,6 +12,7 @@
     "express-graphql": "^0.6.1",
     "graphql": "^0.8.2",
     "graphql-type-json": "^0.1.4",
+    "moment-timezone": "^0.5.11",
     "ournet.data.exchange": "^0.4.0",
     "ournet.data.news": "^0.3.3",
     "ournet.data.places": "^0.4.1",
