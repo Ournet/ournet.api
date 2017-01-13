@@ -1,7 +1,7 @@
 {
   "name": "ournet.api",
   "description": "Ournet api",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "engines": {
     "node": ">=4.0.0"
@@ -15,7 +15,7 @@
     "moment-timezone": "^0.5.11",
     "ournet.data.exchange": "^0.4.0",
     "ournet.data.news": "^0.3.3",
-    "ournet.data.places": "^0.4.1",
+    "ournet.data.places": "^0.4.3",
     "ournet.data.weather": "^0.6.21",
     "ournet.logger": "^0.1.0",
     "public-holidays": "0.0.3",
