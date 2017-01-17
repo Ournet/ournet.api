@@ -14,6 +14,7 @@
     "graphql-type-json": "^0.1.4",
     "moment-timezone": "^0.5.11",
     "ournet.data.exchange": "^0.4.0",
+    "ournet.data.horoscope": "^0.1.0",
     "ournet.data.news": "^0.3.3",
     "ournet.data.places": "^0.4.3",
     "ournet.data.weather": "^0.6.21",
