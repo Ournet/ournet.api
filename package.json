@@ -21,7 +21,7 @@
     "ournet.data.quotes": "^0.1.9",
     "ournet.data.stories": "^0.2.8",
     "ournet.data.videos": "^0.2.4",
-    "ournet.data.weather": "^0.6.21",
+    "ournet.data.weather": "^0.7.0",
     "ournet.logger": "^0.1.0",
     "public-holidays": "^0.1.0",
     "transparentcache": "^1.0.0"
