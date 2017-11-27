@@ -7,6 +7,7 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
+    "@ournet/places-data": "^0.1.4",
     "dotenv": "^2.0.0",
     "entitizer.entities-storage": "^0.3.0",
     "express": "^4.14.0",
@@ -17,7 +18,6 @@
     "ournet.data.exchange": "^0.4.0",
     "ournet.data.horoscope": "^0.2.1",
     "ournet.data.news": "^0.3.5",
-    "ournet.data.places": "^0.4.3",
     "ournet.data.quotes": "^0.1.9",
     "ournet.data.stories": "^0.2.8",
     "ournet.data.videos": "^0.2.4",
