@@ -1,7 +1,7 @@
 {
   "name": "ournet.api",
   "description": "Ournet api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "engines": {
     "node": ">=4.0.0"
